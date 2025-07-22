@@ -11,23 +11,20 @@ const NoteCard = ({ note, onSelect }) => {
   };
 
   const handleEdit = () => {
-    dispatch(selectNote(note.id)); // sets in Redux if needed
-    onSelect(note); // pass full note to parent/modal trigger
+    dispatch(selectNote(note.id));
+    onSelect(note.id); // pass ID only
   };
 
   const markdownPreview = note.body?.slice(0, 200) || "_No content_";
 
   return (
     <tr className="group hover:bg-gray-50 hover:shadow-md hover:ring-1 hover:ring-blue-100 rounded-md bg-white transition-all text-sm table-fixed">
-      {/* Checkbox */}
       <td className="px-4 py-4 w-[5%] text-center align-middle">
         <input
           type="checkbox"
           className="accent-blue-600 h-4 w-4 rounded cursor-pointer"
         />
       </td>
-
-      {/* Title + Icon */}
       <td
         className="px-4 py-4 w-[25%] align-middle whitespace-nowrap"
         title={note.title}
@@ -39,8 +36,6 @@ const NoteCard = ({ note, onSelect }) => {
           </span>
         </div>
       </td>
-
-      {/* Markdown Body Preview */}
       <td className="px-4 py-4 w-[45%] align-middle text-gray-600">
         <ReactMarkdown
           components={{
@@ -56,8 +51,6 @@ const NoteCard = ({ note, onSelect }) => {
           {markdownPreview}
         </ReactMarkdown>
       </td>
-
-      {/* Actions */}
       <td className="px-4 py-4 w-[25%] align-middle text-right space-x-2">
         <button
           onClick={handleEdit}

@@ -18,7 +18,7 @@ const notesSlice = createSlice({
       const newNote = {
         id: nanoid(),
         title: action.payload.title,
-        body: action.payload.content, // ✅ fixed key name
+        body: action.payload.content,  // ✅ fixed key name
         tags: action.payload.tags,
       };
       state.notes.push(newNote);
@@ -100,6 +100,8 @@ export const {
   clearFilterTag,
   setSelectedTags,
 } = notesSlice.actions;
+
+
 
 export const selectNoteById = (state, id) =>
   state.notes.notes.find((note) => note.id === id);

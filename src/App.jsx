@@ -5,7 +5,6 @@ import EditNoteModal from "./features/notes/components/EditNoteModal";
 import {
   setSelectedTags,
   clearSelectedNote,
-  setSelectedNote,
 } from "./features/notes/notesSlice";
 import { Toaster } from "react-hot-toast";
 import { useState } from "react";
